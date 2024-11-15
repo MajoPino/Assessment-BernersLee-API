@@ -8,11 +8,11 @@ namespace Assessment_BernersLee_API.Repositories;
 public interface IAdminRepository
 {
     //Get all admins
-    Task<List<Admin>> Get();
+    Task<List<Admin>> GetAll();
     //Get admin by ID
     Task<Admin> GetById(int id);
     //Add admin
-    Task Add(Admin admin);
+    Task Create(Admin admin);
     //Update admin
     Task Update(Admin admin);
     //Delete admin

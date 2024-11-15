@@ -4,19 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assessment_BernersLee_API.Data;
 using Assessment_BernersLee_API.Models;
+using Assessment_BernersLee_API.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Assessment_BernersLee_API.Services;
-public class AdminServices
+public class AdminServices : IAdminRepository
 {
     protected readonly AppDbContext _context;
         public AdminServices(AppDbContext context)
         {
             _context = context;
         }
-        public async Task Add(Admin admin)
-        {
-            if (admin == null)
+
+    public async Task Create(Admin admin)
+    {
+        if (admin == null)
             {
                 throw new ArgumentNullException("The new admin cannot be saved as null");
             }
@@ -33,10 +35,11 @@ public class AdminServices
             {
                 throw new Exception("Unexpected error adding the admin", ex);
             }
-        }
-        public async Task Delete(int id)
-        {
-            var admin = await _context.Admins.FindAsync(id);
+    }
+
+    public async Task Delete(int id)
+    {
+        var admin = await _context.Admins.FindAsync(id);
             if (admin == null)
             {
                 throw new ArgumentNullException(nameof(admin), "Admin not found");
@@ -46,18 +49,20 @@ public class AdminServices
                 _context.Admins.Remove(admin);
                 await _context.SaveChangesAsync();
             }
-        }
-        public async Task<IEnumerable<Admin>> Get()
-        {
-            if (!_context.Admins.Any())
+    }
+
+    public async Task<List<Admin>> GetAll()
+    {
+        if (!_context.Admins.Any())
             {
                 throw new InvalidOperationException("Admins not found in the database.");
             }
             return await _context.Admins.ToListAsync();
-        }
-        public async Task<Admin> GetById(int id)
-        {
-            try
+    }
+
+    public async Task<Admin> GetById(int id)
+    {
+        try
             {
                 var admin = await _context.Admins.FindAsync(id);
                 if (admin == null)
@@ -70,10 +75,11 @@ public class AdminServices
             {
                 throw new Exception("Unexpected error retrieving the admin", ex);
             }
-        }
-        public async Task Update(Admin admin)
-        {
-            if (admin == null)
+    }
+
+    public async Task Update(Admin admin)
+    {
+        if (admin == null)
             {
                 throw new ArgumentNullException(nameof(admin), "admin cannot be null");
             }
@@ -90,5 +96,5 @@ public class AdminServices
             {
                 throw new Exception("Unexpected error updating the admin", ex);
             }
-        }
+    }
 }
