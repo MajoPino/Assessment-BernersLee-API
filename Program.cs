@@ -1,5 +1,21 @@
+using Assessment_BernersLee_API.Data;
+using DotNetEnv;
+using Microsoft.EntityFrameworkCore;
+
+Env.Load();
+//Create the environment variables
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT");
+var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbUsername = Environment.GetEnvironmentVariable("DB_USERNAME");
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+//Configuration of the connection string
+var connectionString = $"server={dbHost};port={dbPort};database={dbName};uid={dbUsername};password={dbPassword}";
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.Parse("8.0.80-mysql")));
 // Add services to the container.
 
 builder.Services.AddControllers();
