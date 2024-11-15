@@ -10,6 +10,7 @@ namespace Assessment_BernersLee_API.Data;
 public class AppDbContext : DbContext
 {
     public DbSet<Admin> Admins { get; set; }
+    public DbSet<Medic> Medics { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
