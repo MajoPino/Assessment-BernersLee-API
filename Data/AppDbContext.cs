@@ -17,5 +17,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         AdminSeeder.Seed(modelBuilder);
+        MedicSeeder.Seed(modelBuilder);
     }
 }
