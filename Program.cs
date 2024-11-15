@@ -1,4 +1,6 @@
 using Assessment_BernersLee_API.Data;
+using Assessment_BernersLee_API.Repositories;
+using Assessment_BernersLee_API.Services;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +18,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.80-mysql")));
+
 // Add services to the container.
+
+builder.Services.AddScoped<IAdminRepository, AdminServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
