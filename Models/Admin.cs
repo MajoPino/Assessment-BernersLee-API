@@ -41,12 +41,4 @@ public class Admin
 
     public Admin(){}
 
-    public Admin(int id, string name, string lastname, string email, string password)
-    {
-        Id = id;
-        Name = name.Trim().ToLower();
-        LastName = lastname.Trim().ToLower();
-        Email = email.Trim().ToLower();
-        Password = password.Trim().ToLower();
-    }
 }
