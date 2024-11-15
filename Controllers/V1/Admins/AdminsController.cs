@@ -9,11 +9,11 @@ namespace Assessment_BernersLee_API.Controllers.V1.Admins;
 
 [ApiController]
 [Route("api/v1/admins")]
-public class AdminControllers : ControllerBase
+public class AdminsController : ControllerBase
 {
     protected readonly IAdminRepository _adminRepository;
     
-    public AdminControllers(IAdminRepository adminRepository)
+    public AdminsController(IAdminRepository adminRepository)
     {
         _adminRepository = adminRepository;
     }
