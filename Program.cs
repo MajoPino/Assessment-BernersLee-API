@@ -24,6 +24,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Add services to the container
 builder.Services.AddScoped<IAdminRepository, AdminServices>();
 builder.Services.AddScoped<IMedicRepository, MedicServices>();
+builder.Services.AddScoped<IPatientRepository, PatientServices>();
 builder.Services.AddControllers();
 
 // Add Swagger/OpenAPI support
