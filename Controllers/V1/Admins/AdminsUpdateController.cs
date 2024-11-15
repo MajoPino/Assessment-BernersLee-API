@@ -7,6 +7,9 @@ using Assessment_BernersLee_API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Assessment_BernersLee_API.Controllers.V1.Admins;
+
+[ApiController]
+[Route("api/v1/admins")]
 public class AdminsUpdateController : AdminsController
 {
     public AdminsUpdateController(IAdminRepository adminRepository) : base(adminRepository){}
