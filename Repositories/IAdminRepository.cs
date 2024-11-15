@@ -8,14 +8,14 @@ namespace Assessment_BernersLee_API.Repositories;
 public interface IAdminRepository
 {
     //Get all admins
-    Task<List<Admin>> GetAdminsAsync();
+    Task<List<Admin>> Get();
     //Get admin by ID
-    Task<Admin> GetAdminByIdAsync(int id);
+    Task<Admin> GetById(int id);
     //Add admin
-    Task AddAdminAsync(Admin admin);
+    Task Add(Admin admin);
     //Update admin
-    Task UpdateAdminAsync(Admin admin);
+    Task Update(Admin admin);
     //Delete admin
-    Task DeleteAdminAsync(int id);
+    Task Delete(int id);
 }
 
