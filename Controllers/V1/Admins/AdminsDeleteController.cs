@@ -13,7 +13,7 @@ public class AdminsDeleteController : AdminsController
 {
     public AdminsDeleteController(IAdminRepository adminRepository) : base(adminRepository){}
 
-    //DELETE: /api/v1/categories/{id}
+    //DELETE: /api/v1/admins/{id}
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {

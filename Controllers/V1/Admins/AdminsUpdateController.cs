@@ -14,7 +14,7 @@ public class AdminsUpdateController : AdminsController
 {
     public AdminsUpdateController(IAdminRepository adminRepository) : base(adminRepository){}
 
-    //PUT: /api/v1/categories/{id}
+    //PUT: /api/v1/admins/{id}
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] AdminDTO adminDTO)
     {

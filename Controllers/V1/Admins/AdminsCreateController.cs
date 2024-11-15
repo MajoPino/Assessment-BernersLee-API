@@ -15,7 +15,7 @@ public class AdminsCreateController : AdminsController
 {
     public AdminsCreateController(IAdminRepository adminRepository) : base(adminRepository){}
 
-    //POST: /api/v1/categories
+    //POST: /api/v1/admins
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] AdminDTO adminDTO)
     {
