@@ -6,6 +6,9 @@ using Assessment_BernersLee_API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Assessment_BernersLee_API.Controllers.V1.Medics;
+
+[ApiController]
+[Route("api/v1/medics")]
 public class MedicsGetController : MedicsController
 {
     public MedicsGetController(IMedicRepository medicRepository) : base(medicRepository){}
